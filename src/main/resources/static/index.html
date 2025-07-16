@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🐱 고양이 MBTI 성격 테스트</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>🐱 고양이 MBTI 성격 테스트</h1>
+            <p>당신의 고양이 성격을 알아보세요!</p>
+        </header>
+
+        <div id="welcome-screen" class="screen active">
+            <div class="cat-emoji">🐾</div>
+            <h2>어떤 고양이 성격인지 궁금하지 않나요?</h2>
+            <p>간단한 6개의 질문으로 당신의 고양이 성격을 알아보세요!</p>
+            <button id="start-btn" class="btn primary">테스트 시작하기</button>
+        </div>
+
+        <div id="question-screen" class="screen">
+            <div class="progress-bar">
+                <div id="progress" class="progress"></div>
+            </div>
+            <div class="question-counter">
+                <span id="current-question">1</span> / <span id="total-questions">6</span>
+            </div>
+            
+            <div class="question-card">
+                <h3 id="question-text"></h3>
+                <div id="options-container" class="options">
+                </div>
+            </div>
+        </div>
+
+        <div id="result-screen" class="screen">
+            <div class="result-card">
+                <div id="result-emoji" class="result-emoji"></div>
+                <h2 id="result-title"></h2>
+                <p id="result-description"></p>
+                <button id="restart-btn" class="btn secondary">다시 테스트하기</button>
+            </div>
+        </div>
+
+        <div id="loading" class="loading hidden">
+            <div class="cat-loading">🐱</div>
+            <p>결과를 분석하는 중...</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
