@@ -19,8 +19,8 @@ RUN chmod +x ./gradlew
 # Build the application
 RUN ./gradlew build -x test
 
-# Expose port (Render uses PORT environment variable)
-EXPOSE 10000
+# Expose port
+EXPOSE $PORT
 
 # Run the application
-CMD java -Dserver.port=$PORT -jar build/libs/catmbti-0.0.1-SNAPSHOT.jar
+CMD ["java", "-jar", "build/libs/catmbti-0.0.1-SNAPSHOT.jar"]
