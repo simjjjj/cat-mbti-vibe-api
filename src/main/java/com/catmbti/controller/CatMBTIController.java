@@ -10,39 +10,39 @@ import java.util.List;
 @RestController
 public class CatMBTIController {
 
-    // 하드코딩된 질문 리스트 (12개 질문으로 확장)
+    // 하드코딩된 질문 리스트 (12개 질문으로 확장) - 고양이 행동 중심
     private final List<MBTIQuestion> questions = Arrays.asList(
-        // E vs I (외향성 vs 내향성)
-        new MBTIQuestion(1, "새로운 고양이를 만났을 때 당신은?", 
-            Arrays.asList("먼저 다가가서 인사한다", "상대방이 다가올 때까지 기다린다")),
-        new MBTIQuestion(2, "파티에 갔을 때 당신은?", 
-            Arrays.asList("여러 고양이들과 활발하게 어울린다", "친한 몇 마리와만 조용히 이야기한다")),
-        new MBTIQuestion(3, "에너지를 충전하는 방법은?", 
-            Arrays.asList("다른 고양이들과 함께 놀기", "혼자만의 시간 갖기")),
+        // E vs I (외향성 vs 내향성) - 고양이의 사회성
+        new MBTIQuestion(1, "당신의 고양이가 새로운 사람을 만났을 때?", 
+            Arrays.asList("적극적으로 다가가서 관심을 보인다", "멀리서 지켜보거나 숨는다")),
+        new MBTIQuestion(2, "집에 손님이 왔을 때 고양이는?", 
+            Arrays.asList("손님 주변을 맴돌며 관심을 끈다", "조용한 곳으로 피해서 숨는다")),
+        new MBTIQuestion(3, "고양이가 에너지를 회복하는 방법은?", 
+            Arrays.asList("사람들과 함께 놀고 상호작용한다", "혼자만의 공간에서 조용히 쉰다")),
         
-        // S vs N (감각 vs 직관)
-        new MBTIQuestion(4, "새로운 장난감을 받았을 때?", 
-            Arrays.asList("즉시 만져보고 어떻게 작동하는지 확인한다", "이걸로 뭘 할 수 있을지 상상해본다")),
-        new MBTIQuestion(5, "정보를 받아들일 때?", 
-            Arrays.asList("구체적이고 실용적인 정보를 선호한다", "가능성과 의미를 찾는 것을 선호한다")),
-        new MBTIQuestion(6, "문제를 해결할 때?", 
-            Arrays.asList("경험과 사실에 기반해서 해결한다", "새로운 아이디어와 직감으로 해결한다")),
+        // S vs N (감각 vs 직관) - 고양이의 탐색 방식
+        new MBTIQuestion(4, "새로운 장난감을 줬을 때 고양이는?", 
+            Arrays.asList("즉시 냄새 맡고 만져보며 탐색한다", "멀리서 관찰한 후 천천히 접근한다")),
+        new MBTIQuestion(5, "고양이가 먹이를 대하는 방식은?", 
+            Arrays.asList("눈앞의 음식에 집중하며 바로 먹는다", "주변을 살피고 상황을 파악한 후 먹는다")),
+        new MBTIQuestion(6, "새로운 환경에서 고양이는?", 
+            Arrays.asList("구석구석 직접 탐험하며 확인한다", "높은 곳에서 전체적으로 관찰한다")),
         
-        // T vs F (사고 vs 감정)
-        new MBTIQuestion(7, "다른 고양이와 갈등이 생겼을 때?", 
-            Arrays.asList("논리적으로 따져서 해결한다", "서로의 감정을 고려해서 해결한다")),
-        new MBTIQuestion(8, "결정을 내릴 때 중요한 것은?", 
-            Arrays.asList("객관적이고 합리적인 분석", "관련된 모든 이의 감정과 가치")),
-        new MBTIQuestion(9, "비판을 받았을 때?", 
-            Arrays.asList("내용이 맞는지 객관적으로 판단한다", "상대방의 의도와 내 감정을 먼저 생각한다")),
+        // T vs F (사고 vs 감정) - 고양이의 반응 방식
+        new MBTIQuestion(7, "다른 고양이와 마주쳤을 때?", 
+            Arrays.asList("크기와 힘을 비교하며 우위를 정한다", "상대방의 기분을 살피며 조심스럽게 접근한다")),
+        new MBTIQuestion(8, "주인이 슬퍼할 때 고양이는?", 
+            Arrays.asList("평소와 다름없이 자신의 일을 한다", "주인 곁에 다가가 위로하려 한다")),
+        new MBTIQuestion(9, "고양이가 혼날 때 반응은?", 
+            Arrays.asList("당당하게 쳐다보거나 무시한다", "풀죽은 표정으로 미안해한다")),
         
-        // J vs P (판단 vs 인식)
-        new MBTIQuestion(10, "하루 일과는?", 
-            Arrays.asList("미리 계획을 세우고 그대로 실행한다", "그때그때 상황에 맞춰 유연하게 한다")),
-        new MBTIQuestion(11, "여행을 갈 때?", 
-            Arrays.asList("상세한 일정을 미리 짜놓는다", "대략적인 계획만 세우고 즉흥적으로 한다")),
-        new MBTIQuestion(12, "마감이 있는 일을 할 때?", 
-            Arrays.asList("미리미리 차근차근 준비한다", "마감 직전에 집중해서 몰아서 한다"))
+        // J vs P (판단 vs 인식) - 고양이의 생활 패턴
+        new MBTIQuestion(10, "고양이의 하루 일과는?", 
+            Arrays.asList("정해진 시간에 밥 먹고 자는 규칙적인 생활", "기분에 따라 자유롭게 행동한다")),
+        new MBTIQuestion(11, "고양이의 잠자리는?", 
+            Arrays.asList("항상 같은 자리에서 잔다", "매일 다른 곳에서 잔다")),
+        new MBTIQuestion(12, "고양이가 놀 때는?", 
+            Arrays.asList("정해진 장난감으로 일정하게 논다", "그때그때 흥미로운 것을 찾아 논다"))
     );
 
     @GetMapping("/test/questions")
